@@ -232,7 +232,63 @@
       </div>
     </div>
   </section>
+<!-- Customer Reviews -->
+<section id="reviews">
+  <h2>Customer Reviews</h2>
 
+  <div class="reviews">
+    <div class="review-card">
+      <p>
+        “Very good quality teak wood. Accurate cut size and honest dealing.
+        Highly recommended.”
+      </p>
+      <span>— Local Carpenter, Mysuru ⭐⭐⭐⭐⭐</span>
+    </div>
+
+    <div class="review-card">
+      <p>
+        “Reliable timber supplier. Wood quality is consistent and pricing is fair.”
+      </p>
+      <span>— Furniture Maker ⭐⭐⭐⭐☆</span>
+    </div>
+
+    <div class="review-card">
+      <p>
+        “Best place for cut-size timber and round logs. Smooth experience every time.”
+      </p>
+      <span>— Contractor ⭐⭐⭐⭐⭐</span>
+    </div>
+  </div>
+</section>
+
+<style>
+.reviews {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.review-card {
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  border-left: 4px solid #c9a24d;
+}
+
+.review-card p {
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.review-card span {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #4a3222;
+}
+</style>
   <!-- Contact -->
   <section id="contact" class="contact">
     <h2>Contact Us</h2>
