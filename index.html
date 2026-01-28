@@ -289,6 +289,117 @@
   color: #4a3222;
 }
 </style>
+  <section id="demo-order">
+  <h2>Quick Timber Enquiry (Demo with CFT)</h2>
+
+  <form onsubmit="sendDemoWhatsApp(); return false;" class="demo-form">
+
+    <label>Wood Type</label>
+    <select id="wood">
+      <option>Teak Wood</option>
+      <option>Neem Wood</option>
+      <option>Jungle Wood</option>
+    </select>
+
+    <label>Cut Size (Thickness x Width in inch)</label>
+    <select id="size">
+      <option value="1x4">1 x 4 inch</option>
+      <option value="2x3">2 x 3 inch</option>
+      <option value="2x4">2 x 4 inch</option>
+      <option value="3x6">3 x 6 inch</option>
+    </select>
+
+    <label>Length (ft)</label>
+    <select id="length">
+      <option value="7">7 ft</option>
+      <option value="8">8 ft</option>
+      <option value="10">10 ft</option>
+    </select>
+
+    <label>Quantity (Nos)</label>
+    <input type="number" id="qty" placeholder="e.g. 20" required>
+
+    <p><strong>Total CFT:</strong> <span id="cft">0</span></p>
+
+    <button type="submit">Send on WhatsApp</button>
+  </form>
+</section>
+
+<style>
+.demo-form {
+  max-width: 420px;
+  background: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+.demo-form label {
+  display: block;
+  margin-top: 15px;
+  font-weight: 600;
+}
+.demo-form select,
+.demo-form input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+}
+.demo-form button {
+  margin-top: 20px;
+  padding: 12px;
+  width: 100%;
+  background: #25D366;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+</style>
+
+<script>
+const sizeMap = {
+  "1x4": { t: 1, w: 4 },
+  "2x3": { t: 2, w: 3 },
+  "2x4": { t: 2, w: 4 },
+  "3x6": { t: 3, w: 6 }
+};
+
+document.querySelectorAll("#size, #length, #qty").forEach(el => {
+  el.addEventListener("input", calculateCFT);
+});
+
+function calculateCFT() {
+  const size = document.getElementById("size").value;
+  const length = parseFloat(document.getElementById("length").value);
+  const qty = parseFloat(document.getElementById("qty").value) || 0;
+
+  const t = sizeMap[size].t;
+  const w = sizeMap[size].w;
+
+  // CFT formula: (T × W × L) / 144 × Qty
+  const cft = ((t * w * length) / 144) * qty;
+
+  document.getElementById("cft").innerText = cft.toFixed(2);
+}
+
+function sendDemoWhatsApp() {
+  const wood = document.getElementById("wood").value;
+  const sizeText = document.getElementById("size").options[document.getElementById("size").selectedIndex].text;
+  const length = document.getElementById("length").value;
+  const qty = document.getElementById("qty").value;
+  const cft = document.getElementById("cft").innerText;
+
+  const msg =
+    "Hello Shalimar Oak Fine Woods,%0A" +
+    "Wood: " + wood + "%0A" +
+    "Cut Size: " + sizeText + "%0A" +
+    "Length: " + length + " ft%0A" +
+    "Quantity: " + qty + " Nos%0A" +
+    "Total CFT: " + cft;
+
+  window.open("https://wa.me/918050492153?text=" + msg, "_blank");
+}
+</script>
   <!-- Contact -->
   <section id="contact" class="contact">
     <h2>Contact Us</h2>
