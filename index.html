@@ -8,7 +8,6 @@
 <style>
 :root{
   --dark:#2b1e14;
-  --brown:#4a3222;
   --gold:#c9a24d;
   --bg:#f6f3ef;
   --green:#25D366;
@@ -18,105 +17,82 @@ body{margin:0;background:var(--bg);color:#222}
 
 /* HEADER */
 header{
-  background:linear-gradient(rgba(43,30,20,.85),rgba(43,30,20,.85)),
-  url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c");
-  background-size:cover;
+  background:linear-gradient(rgba(43,30,20,.88),rgba(43,30,20,.88));
   color:#fff;
-  padding:70px 20px;
+  padding:55px 20px;
   text-align:center;
 }
-header h1{margin:0;font-size:2.6rem}
+header h1{margin:0}
 header p{color:var(--gold);font-style:italic}
 
-/* NAV */
-nav{
-  background:var(--dark);
-  padding:12px;
-  text-align:center;
-}
-nav a{
-  color:#fff;
-  margin:0 12px;
-  text-decoration:none;
-  font-weight:600;
-}
-nav a:hover{color:var(--gold)}
-
-section{padding:55px 8%}
+/* SECTION */
+section{padding:40px 7%}
 h2{color:var(--dark)}
 h2:after{
   content:"";
-  width:50px;height:3px;
+  width:45px;height:3px;
   background:var(--gold);
   display:block;margin-top:6px;
 }
 
-/* PRODUCTS */
-.products{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:22px;margin-top:25px;
-}
-.card{
-  background:#fff;
-  border-radius:10px;
-  box-shadow:0 10px 25px rgba(0,0,0,.08);
-  overflow:hidden;
-}
-.card img{
-  width:100%;height:180px;object-fit:cover;
-}
-.card div{padding:18px}
-
 /* CALCULATOR */
-.calc-wrap{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:30px;
-  align-items:start;
-}
-@media(max-width:900px){
-  .calc-wrap{grid-template-columns:1fr}
-}
-
-.calc-box{
+.calc{
   background:#fff;
-  padding:28px;
   border-radius:14px;
+  padding:25px;
   box-shadow:0 15px 35px rgba(0,0,0,.12);
-  border-top:5px solid var(--gold);
 }
-.calc-box label{display:block;margin-top:14px;font-weight:600}
-.calc-box select,.calc-box input{
-  width:100%;padding:10px;margin-top:6px;
+.row{
+  display:grid;
+  grid-template-columns:2fr 2fr 1.5fr 1.5fr 1fr;
+  gap:8px;
+  margin-top:10px;
 }
-.calc-box button{
+.row select,.row input{
+  padding:8px;
+}
+.row button{
+  background:#c0392b;
+  color:#fff;
+  border:none;
+  cursor:pointer;
+}
+.add-btn{
+  margin-top:15px;
+  background:#444;
+  color:#fff;
+  border:none;
+  padding:10px;
+  cursor:pointer;
+}
+.total{
+  margin-top:20px;
+  font-size:18px;
+  font-weight:700;
+}
+.send-btn,.pdf-btn{
+  margin-top:15px;
   width:100%;
-  margin-top:22px;
   padding:14px;
-  background:linear-gradient(135deg,#25D366,#1ebe5d);
-  color:#fff;border:none;
-  font-size:16px;font-weight:700;
-  cursor:pointer;border-radius:6px;
+  border:none;
+  font-size:16px;
+  font-weight:700;
+  cursor:pointer;
 }
-.calc-box p{
-  margin-top:18px;
-  font-size:18px;font-weight:700;
-  color:var(--brown);
-}
+.send-btn{background:var(--green);color:#fff}
+.pdf-btn{background:var(--dark);color:#fff}
 
 /* WHATSAPP FLOAT */
 .wa-float{
   position:fixed;
   bottom:20px;right:20px;
-  width:62px;height:62px;
+  width:60px;height:60px;
   background:#25D366;
   border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
   box-shadow:0 12px 28px rgba(37,211,102,.6);
-  z-index:999;
 }
 .wa-float img{width:34px}
 </style>
@@ -124,146 +100,140 @@ h2:after{
 
 <body>
 
-<nav>
-<a href="#home">Home</a>
-<a href="#products">Products</a>
-<a href="#calculator">Calculator</a>
-<a href="#contact">Contact</a>
-</nav>
-
-<header id="home">
+<header>
 <h1>Shalimar Oak Fine Woods</h1>
 <p>A Story in Every Grain</p>
 </header>
 
-<section id="products">
-<h2>Our Products</h2>
-<div class="products">
-<div class="card">
-<img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e">
-<div><h3>Teak Wood</h3><p>Premium teak in cut sizes & logs.</p></div>
-</div>
-<div class="card">
-<img src="https://images.unsplash.com/photo-1560185127-6a8c1d7b07d4">
-<div><h3>Silver Wood</h3><p>Eucalyptus wood for structure.</p></div>
-</div>
-<div class="card">
-<img src="https://images.unsplash.com/photo-1598300053653-2be0c89f6c31">
-<div><h3>Neem Wood</h3><p>Durable & reliable timber.</p></div>
-</div>
-</div>
-</section>
+<section>
+<h2>Teak Wood Multi-Size Calculator</h2>
 
-<section id="calculator">
-<h2>Teak Wood Size & CFT Calculator</h2>
+<div class="calc">
 
-<div class="calc-wrap">
-
-<div class="calc-box">
-<label>Teak Quality</label>
-<select id="quality">
-<option>1st Quality Teak</option>
-<option>2nd Quality Teak</option>
-<option>Medium Teak</option>
-</select>
-
-<label>Cut Size (inch)</label>
-<select id="size">
-<option value="5x4">5 x 4</option>
-<option value="6x3">6 x 3</option>
-<option value="6x4">6 x 4</option>
-<option value="7x3">7 x 3</option>
-<option value="7x4">7 x 4</option>
-<option value="8x3">8 x 3</option>
-<option value="8x4">8 x 4</option>
-
-<option value="2x1.25">2 x 1.25</option>
-<option value="2x1.5">2 x 1.5</option>
-<option value="2x2">2 x 2</option>
-<option value="3x1.25">3 x 1.25</option>
-<option value="3x1.5">3 x 1.5</option>
-<option value="3x2">3 x 2</option>
-<option value="4x1.25">4 x 1.25</option>
-<option value="4x1.5">4 x 1.5</option>
-<option value="4x2">4 x 2</option>
-<option value="5x1.25">5 x 1.25</option>
-<option value="6x1.25">6 x 1.25</option>
-<option value="7x1.25">7 x 1.25</option>
-<option value="8x1.25">8 x 1.25</option>
-<option value="9x1.25">9 x 1.25</option>
-<option value="10x1.25">10 x 1.25</option>
-<option value="11x1.25">11 x 1.25</option>
-<option value="12x1.25">12 x 1.25</option>
-</select>
-
-<label>Length (ft)</label>
-<select id="length"></select>
-
-<label>Quantity (Nos)</label>
-<input type="number" id="qty">
-
-<p>Total CFT: <span id="cft">0</span></p>
-
-<button onclick="sendWA()">Send Enquiry on WhatsApp</button>
+<div class="row" style="font-weight:700">
+<div>Quality</div>
+<div>Size (inch)</div>
+<div>Length (ft)</div>
+<div>Qty</div>
+<div>Remove</div>
 </div>
 
-<div>
-<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"
-     style="width:100%;border-radius:14px;box-shadow:0 12px 30px rgba(0,0,0,.15)">
+<div id="items"></div>
+
+<button class="add-btn" onclick="addRow()">➕ Add Another Size</button>
+
+<div class="total">
+Total CFT: <span id="totalCFT">0</span>
 </div>
+
+<button class="send-btn" onclick="sendWA()">Send on WhatsApp</button>
+<button class="pdf-btn" onclick="generatePDF()">Generate PDF Quotation</button>
 
 </div>
 </section>
-
-<section id="contact">
-<h2>Contact</h2>
-<p>
-📞 8050492153<br>
-📍 Mysuru
-</p>
-</section>
-
-<footer style="background:#2b1e14;color:#fff;text-align:center;padding:20px">
-© 2026 <span style="color:#c9a24d">Shalimar Oak Fine Woods</span>
-</footer>
 
 <a class="wa-float"
-href="https://wa.me/918050492153?text=Hello%20Shalimar%20Oak%20Fine%20Woods%2C%20I%20would%20like%20to%20enquire%20about%20teak%20wood."
+href="https://wa.me/918050492153?text=Hello%20Shalimar%20Oak%20Fine%20Woods"
 target="_blank">
 <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png">
 </a>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
 <script>
-const lengthSel=document.getElementById("length");
-for(let i=1;i<=12;i+=0.25){
-let o=document.createElement("option");
-o.value=i.toFixed(2);
-o.text=i.toFixed(2)+" ft";
-lengthSel.appendChild(o);
+function addRow(){
+  const div=document.createElement("div");
+  div.className="row";
+
+  div.innerHTML=`
+  <select class="quality">
+    <option>1st Quality Teak</option>
+    <option>2nd Quality Teak</option>
+    <option>Medium Teak</option>
+  </select>
+
+  <input class="size" placeholder="e.g. 5x4">
+
+  <input class="length" placeholder="ft">
+
+  <input class="qty" placeholder="Nos">
+
+  <button onclick="this.parentElement.remove();calc()">X</button>
+  `;
+  document.getElementById("items").appendChild(div);
+
+  div.querySelectorAll("input,select").forEach(e=>{
+    e.addEventListener("input",calc);
+  });
 }
 
-["size","length","qty"].forEach(id=>{
-document.getElementById(id).addEventListener("input",calc);
-});
-
 function calc(){
-let s=size.value.split("x");
-let t=parseFloat(s[0]),w=parseFloat(s[1]);
-let l=parseFloat(length.value)||0;
-let q=parseFloat(qty.value)||0;
-cft.innerText=((t*w*l)/144*q).toFixed(2);
+  let total=0;
+  document.querySelectorAll("#items .row").forEach(r=>{
+    const s=r.querySelector(".size").value.split("x");
+    if(s.length!=2) return;
+    const t=parseFloat(s[0]);
+    const w=parseFloat(s[1]);
+    const l=parseFloat(r.querySelector(".length").value)||0;
+    const q=parseFloat(r.querySelector(".qty").value)||0;
+    if(!t||!w) return;
+    total+=((t*w*l)/144)*q;
+  });
+  document.getElementById("totalCFT").innerText=total.toFixed(2);
 }
 
 function sendWA(){
-let msg=
-"Teak Wood Enquiry%0A"+
-"Quality: "+quality.value+"%0A"+
-"Size: "+size.options[size.selectedIndex].text+" inch%0A"+
-"Length: "+length.value+" ft%0A"+
-"Quantity: "+qty.value+"%0A"+
-"Total CFT: "+cft.innerText;
-window.open("https://wa.me/918050492153?text="+msg,"_blank");
+  let msg="Teak Wood Enquiry%0A";
+  let total=0;
+
+  document.querySelectorAll("#items .row").forEach(r=>{
+    const ql=r.querySelector(".quality").value;
+    const size=r.querySelector(".size").value;
+    const l=r.querySelector(".length").value;
+    const qty=r.querySelector(".qty").value;
+    const s=size.split("x");
+    if(s.length!=2) return;
+    const cft=((s[0]*s[1]*l)/144)*qty;
+    total+=cft;
+    msg+=ql+" | "+size+" | "+l+" ft | "+qty+" Nos | CFT "+cft.toFixed(2)+"%0A";
+  });
+
+  msg+="Total CFT: "+total.toFixed(2);
+  window.open("https://wa.me/918050492153?text="+msg,"_blank");
 }
+
+function generatePDF(){
+  const { jsPDF } = window.jspdf;
+  const doc=new jsPDF();
+  let y=15;
+
+  doc.setFontSize(14);
+  doc.text("Shalimar Oak Fine Woods",15,y); y+=8;
+  doc.setFontSize(10);
+  doc.text("Teak Wood Quotation",15,y); y+=10;
+
+  let total=0;
+
+  document.querySelectorAll("#items .row").forEach(r=>{
+    const ql=r.querySelector(".quality").value;
+    const size=r.querySelector(".size").value;
+    const l=r.querySelector(".length").value;
+    const qty=r.querySelector(".qty").value;
+    const s=size.split("x");
+    if(s.length!=2) return;
+    const cft=((s[0]*s[1]*l)/144)*qty;
+    total+=cft;
+    doc.text(`${ql} | ${size} | ${l} ft | ${qty} Nos | CFT ${cft.toFixed(2)}`,15,y);
+    y+=7;
+  });
+
+  y+=5;
+  doc.text("Total CFT: "+total.toFixed(2),15,y);
+  doc.save("Shalimar_Teak_Quotation.pdf");
+}
+
+/* start with one row */
+addRow();
 </script>
 
 </body>
