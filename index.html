@@ -13,8 +13,8 @@
   --bg:#f6f3ef;
   --green:#25D366;
 }
-*{box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
-body{margin:0;background:var(--bg);color:#222;line-height:1.6}
+*{box-sizing:border-box;font-family:Segoe UI,Arial}
+body{margin:0;background:var(--bg);color:#222}
 
 /* HEADER */
 header{
@@ -25,7 +25,7 @@ header{
   padding:70px 20px;
   text-align:center;
 }
-header h1{font-size:2.6rem;margin:0}
+header h1{margin:0;font-size:2.6rem}
 header p{color:var(--gold);font-style:italic}
 
 /* NAV */
@@ -36,89 +36,86 @@ nav{
 }
 nav a{
   color:#fff;
-  text-decoration:none;
   margin:0 12px;
+  text-decoration:none;
   font-weight:600;
 }
 nav a:hover{color:var(--gold)}
 
-/* SECTIONS */
-section{padding:55px 10%}
+section{padding:55px 8%}
 h2{color:var(--dark)}
 h2:after{
   content:"";
-  width:50px;
-  height:3px;
+  width:50px;height:3px;
   background:var(--gold);
-  display:block;
-  margin-top:6px;
+  display:block;margin-top:6px;
 }
 
 /* PRODUCTS */
 .products{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:20px;
-  margin-top:25px;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:22px;margin-top:25px;
 }
 .card{
   background:#fff;
-  padding:22px;
-  border-radius:8px;
-  box-shadow:0 8px 20px rgba(0,0,0,.08);
-  border-top:4px solid var(--gold);
+  border-radius:10px;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+  overflow:hidden;
 }
+.card img{
+  width:100%;height:180px;object-fit:cover;
+}
+.card div{padding:18px}
 
 /* CALCULATOR */
+.calc-wrap{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+  align-items:start;
+}
+@media(max-width:900px){
+  .calc-wrap{grid-template-columns:1fr}
+}
+
 .calc-box{
-  max-width:520px;
   background:#fff;
-  padding:25px;
-  border-radius:10px;
-  box-shadow:0 10px 25px rgba(0,0,0,.1);
+  padding:28px;
+  border-radius:14px;
+  box-shadow:0 15px 35px rgba(0,0,0,.12);
+  border-top:5px solid var(--gold);
 }
 .calc-box label{display:block;margin-top:14px;font-weight:600}
 .calc-box select,.calc-box input{
-  width:100%;
-  padding:10px;
-  margin-top:6px;
+  width:100%;padding:10px;margin-top:6px;
 }
 .calc-box button{
   width:100%;
-  margin-top:20px;
+  margin-top:22px;
   padding:14px;
-  background:var(--green);
-  border:none;
-  color:#fff;
-  font-size:16px;
-  font-weight:600;
-  cursor:pointer;
+  background:linear-gradient(135deg,#25D366,#1ebe5d);
+  color:#fff;border:none;
+  font-size:16px;font-weight:700;
+  cursor:pointer;border-radius:6px;
 }
-.calc-box p{margin-top:15px;font-weight:700}
-
-/* FOOTER */
-footer{
-  background:var(--dark);
-  color:#fff;
-  text-align:center;
-  padding:20px;
-  font-size:.9rem;
+.calc-box p{
+  margin-top:18px;
+  font-size:18px;font-weight:700;
+  color:var(--brown);
 }
-footer span{color:var(--gold)}
 
 /* WHATSAPP FLOAT */
 .wa-float{
   position:fixed;
-  bottom:20px;
-  right:20px;
-  width:60px;
-  height:60px;
+  bottom:20px;right:20px;
+  width:62px;height:62px;
   background:#25D366;
   border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
-  box-shadow:0 12px 25px rgba(37,211,102,.6);
+  box-shadow:0 12px 28px rgba(37,211,102,.6);
   z-index:999;
 }
 .wa-float img{width:34px}
@@ -128,50 +125,75 @@ footer span{color:var(--gold)}
 <body>
 
 <nav>
-  <a href="#home">Home</a>
-  <a href="#products">Products</a>
-  <a href="#calculator">Calculator</a>
-  <a href="#contact">Contact</a>
+<a href="#home">Home</a>
+<a href="#products">Products</a>
+<a href="#calculator">Calculator</a>
+<a href="#contact">Contact</a>
 </nav>
 
 <header id="home">
-  <h1>Shalimar Oak Fine Woods</h1>
-  <p>A Story in Every Grain</p>
+<h1>Shalimar Oak Fine Woods</h1>
+<p>A Story in Every Grain</p>
 </header>
 
 <section id="products">
 <h2>Our Products</h2>
 <div class="products">
-  <div class="card"><h3>Teak Wood</h3><p>Premium quality teak in cut sizes and logs.</p></div>
-  <div class="card"><h3>Neem Wood</h3><p>Durable and reliable for multiple uses.</p></div>
-  <div class="card"><h3>Silver Wood</h3><p>Eucalyptus wood for structural needs.</p></div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e">
+<div><h3>Teak Wood</h3><p>Premium teak in cut sizes & logs.</p></div>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1560185127-6a8c1d7b07d4">
+<div><h3>Silver Wood</h3><p>Eucalyptus wood for structure.</p></div>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1598300053653-2be0c89f6c31">
+<div><h3>Neem Wood</h3><p>Durable & reliable timber.</p></div>
+</div>
 </div>
 </section>
 
-<!-- CALCULATOR -->
 <section id="calculator">
 <h2>Teak Wood Size & CFT Calculator</h2>
+
+<div class="calc-wrap">
 
 <div class="calc-box">
 <label>Teak Quality</label>
 <select id="quality">
-  <option>1st Quality Teak</option>
-  <option>2nd Quality Teak</option>
-  <option>Medium Teak</option>
+<option>1st Quality Teak</option>
+<option>2nd Quality Teak</option>
+<option>Medium Teak</option>
 </select>
 
 <label>Cut Size (inch)</label>
 <select id="size">
-  <option value="5x4">5 x 4</option>
-  <option value="6x3">6 x 3</option>
-  <option value="6x4">6 x 4</option>
-  <option value="7x3">7 x 3</option>
-  <option value="7x4">7 x 4</option>
-  <option value="8x3">8 x 3</option>
-  <option value="8x4">8 x 4</option>
-  <option value="2x1.25">2 x 1.25</option>
-  <option value="3x1.5">3 x 1.5</option>
-  <option value="4x2">4 x 2</option>
+<option value="5x4">5 x 4</option>
+<option value="6x3">6 x 3</option>
+<option value="6x4">6 x 4</option>
+<option value="7x3">7 x 3</option>
+<option value="7x4">7 x 4</option>
+<option value="8x3">8 x 3</option>
+<option value="8x4">8 x 4</option>
+
+<option value="2x1.25">2 x 1.25</option>
+<option value="2x1.5">2 x 1.5</option>
+<option value="2x2">2 x 2</option>
+<option value="3x1.25">3 x 1.25</option>
+<option value="3x1.5">3 x 1.5</option>
+<option value="3x2">3 x 2</option>
+<option value="4x1.25">4 x 1.25</option>
+<option value="4x1.5">4 x 1.5</option>
+<option value="4x2">4 x 2</option>
+<option value="5x1.25">5 x 1.25</option>
+<option value="6x1.25">6 x 1.25</option>
+<option value="7x1.25">7 x 1.25</option>
+<option value="8x1.25">8 x 1.25</option>
+<option value="9x1.25">9 x 1.25</option>
+<option value="10x1.25">10 x 1.25</option>
+<option value="11x1.25">11 x 1.25</option>
+<option value="12x1.25">12 x 1.25</option>
 </select>
 
 <label>Length (ft)</label>
@@ -182,53 +204,65 @@ footer span{color:var(--gold)}
 
 <p>Total CFT: <span id="cft">0</span></p>
 
-<button onclick="sendWA()">Send on WhatsApp</button>
+<button onclick="sendWA()">Send Enquiry on WhatsApp</button>
+</div>
+
+<div>
+<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"
+     style="width:100%;border-radius:14px;box-shadow:0 12px 30px rgba(0,0,0,.15)">
+</div>
+
 </div>
 </section>
 
 <section id="contact">
-<h2>Contact Us</h2>
+<h2>Contact</h2>
 <p>
 📞 8050492153<br>
-📍 Mysuru<br>
-🌐 https://shahidmohammed1033-hue.github.io/Shalimar-Oak-Fine-Woods/
+📍 Mysuru
 </p>
 </section>
 
-<footer>
-© 2026 <span>Shalimar Oak Fine Woods</span>
+<footer style="background:#2b1e14;color:#fff;text-align:center;padding:20px">
+© 2026 <span style="color:#c9a24d">Shalimar Oak Fine Woods</span>
 </footer>
 
-<a class="wa-float" href="https://wa.me/918050492153" target="_blank">
+<a class="wa-float"
+href="https://wa.me/918050492153?text=Hello%20Shalimar%20Oak%20Fine%20Woods%2C%20I%20would%20like%20to%20enquire%20about%20teak%20wood."
+target="_blank">
 <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png">
 </a>
 
 <script>
 const lengthSel=document.getElementById("length");
 for(let i=1;i<=12;i+=0.25){
-  let o=document.createElement("option");
-  o.value=i;o.text=i+" ft";
-  lengthSel.appendChild(o);
+let o=document.createElement("option");
+o.value=i.toFixed(2);
+o.text=i.toFixed(2)+" ft";
+lengthSel.appendChild(o);
 }
+
 ["size","length","qty"].forEach(id=>{
-  document.getElementById(id).addEventListener("input",calc);
+document.getElementById(id).addEventListener("input",calc);
 });
+
 function calc(){
-  let s=document.getElementById("size").value.split("x");
-  let t=parseFloat(s[0]),w=parseFloat(s[1]);
-  let l=parseFloat(length.value)||0;
-  let q=parseFloat(qty.value)||0;
-  document.getElementById("cft").innerText=((t*w*l)/144*q).toFixed(2);
+let s=size.value.split("x");
+let t=parseFloat(s[0]),w=parseFloat(s[1]);
+let l=parseFloat(length.value)||0;
+let q=parseFloat(qty.value)||0;
+cft.innerText=((t*w*l)/144*q).toFixed(2);
 }
+
 function sendWA(){
-  let msg=
-  "Teak Enquiry%0A"+
-  "Quality: "+quality.value+"%0A"+
-  "Size: "+size.options[size.selectedIndex].text+" inch%0A"+
-  "Length: "+length.value+" ft%0A"+
-  "Qty: "+qty.value+"%0A"+
-  "CFT: "+cft.innerText;
-  window.open("https://wa.me/918050492153?text="+msg,"_blank");
+let msg=
+"Teak Wood Enquiry%0A"+
+"Quality: "+quality.value+"%0A"+
+"Size: "+size.options[size.selectedIndex].text+" inch%0A"+
+"Length: "+length.value+" ft%0A"+
+"Quantity: "+qty.value+"%0A"+
+"Total CFT: "+cft.innerText;
+window.open("https://wa.me/918050492153?text="+msg,"_blank");
 }
 </script>
 
